@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Set Result</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <style>
+        .container {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container border border-1 mt-3 p-3">
+        <form id="resultForm" class="row row-cols-1 g-3">
+            <div class="col">
+                <label for="NIC" class="form-label">NIC</label>
+                <input type="number" class="form-control" id="NIC">
+            </div>
+            <div class="col">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" class="form-control" id="name">
+            </div>
+            <div class="col">
+                <label for="age" class="form-label">Age</label>
+                <input type="number" class="form-control" id="age">
+            </div>
+            <div class="col pt-3">
+                <button type="button" class="btn btn-success" onclick="handleSubmit()">Update</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        function handleSubmit() {
+            // Gather form data
+            const NIC = document.getElementById('NIC').value;
+            const name = document.getElementById('name').value;
+            const age = document.getElementById('age').value;
+           
+
+            // Make a POST request with Axios
+            axios.post('http://localhost:3001/setResult', {
+                NIC,
+                name,
+                age
+            
+            })
+            .then(response => {
+                console.log('Response:', response.data);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        }
+    </script>
+</body>
+</html>
