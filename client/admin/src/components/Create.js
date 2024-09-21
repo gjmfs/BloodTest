@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+export let nic;
 
 export const CreateUser = () => {
   const [name, setName] = useState();
@@ -23,6 +24,7 @@ export const CreateUser = () => {
           console.log("user exist");
         }
         navigate("/setResult");
+        nic = NIC;
       });
   };
 
@@ -70,7 +72,13 @@ export const CreateUser = () => {
         </form>
       </div>
 
-      <button className="btn btn-primary mt-3" onClick={handleSubmit}>
+      <button
+        className="btn btn-primary mt-3"
+        onClick={async (e) => {
+          await handleSubmit(e);
+          nic = NIC;
+        }}
+      >
         submit
       </button>
     </div>

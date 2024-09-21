@@ -73,7 +73,9 @@ app.post("/setUser", async (req, res) => {
 //create a result
 app.post("/setResult", async (req, res) => {
   ResultModel.create(req.body)
-    .then((data) => res.json(data))
+    .then((data) => {
+      res.json(data);
+    })
     .catch((err) => res.json(err));
 });
 
@@ -91,6 +93,16 @@ app.get("/getUser", async (req, res) => {
     .catch((err) => res.json(err.message));
 });
 
+//get all results available for the specific user
+app.get("/getResult", (req, res) => {
+  console.log(req.body);
+  const uId = req.query.uId;
+  ResultModel.find({ userID: uId }).then((data) => {
+    console.log(data);
+    res.json(data);
+  });
+});
+
 //delete an user
 app.delete("/delUser", async (req, res) => {
   const delUser = req.query.delUser;
@@ -106,7 +118,10 @@ app.delete("/delUser", async (req, res) => {
 //set nic for result
 app.get("/nicSet", (req, res) => {
   const nic = req.query.nic;
-  UserModel.find({ NIC: nic }).then(ResultModel);
+  UserModel.find({ NIC: nic }).then((data) => {
+    res.json(data);
+    console.log(data);
+  });
 });
 app.listen(3001, () => {
   console.log("server running on port no:3001");

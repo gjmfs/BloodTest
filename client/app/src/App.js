@@ -3,7 +3,7 @@ import { SignUp } from "./components/SignUp";
 import { Home } from "./components/Home";
 import { Login } from "./components/Login";
 import { Nav } from "./components/Nav";
-import { Results } from "./components/Results";
+import { FinalResult, Results } from "./components/Results";
 import { Footer } from "./components/Footer";
 import { Service } from "./components/Service";
 import "./App.css";
@@ -18,6 +18,7 @@ function App() {
         <Route path="/login" element={<Login />}></Route>
         <Route path="/results" element={<Results />}></Route>
         <Route path="/service" element={<Service />}></Route>
+        <Route path="/fResult" element={<FinalResult />}></Route>
       </Routes>
       <Footer />
     </div>

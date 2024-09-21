@@ -32,6 +32,7 @@ const Results = new mongoose.Schema({
   userID: {
     type: mongoose.SchemaTypes.ObjectId,
     ref: "users",
+    required: true,
   },
   createAt: {
     type: Date,

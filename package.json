@@ -11,10 +11,7 @@
     "server-i": "cd server && npm i",
     "admin-i": "cd client/admin && npm i"
   },
-  "author": "",
+  "author": "gjmfs",
   "license": "ISC",
-  "description": "",
-  "dependencies": {
-    "bootstrap": "^5.3.3"
-  }
+  "description": ""
 }
